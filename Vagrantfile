@@ -64,5 +64,5 @@ Vagrant.configure('2') do |config|
 		"echo 'Downloading and extracting buildroot'
         git clone https://github.com/YesVideo/buildroot-rpi3.git
         cd buildroot-rpi3
-        git checkout ufo
+        git checkout ufo"
 end

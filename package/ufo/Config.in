@@ -1,0 +1,7 @@
+config BR2_PACKAGE_UFO
+	bool "ufo"
+    depends on BR2_PACKAGE_NODEJS
+	help
+	  UFO node.js server
+
+	  https://github.com/YesVideo/ufo.js

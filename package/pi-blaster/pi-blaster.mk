@@ -1,0 +1,23 @@
+################################################################################
+#
+# pi_blaster
+#
+################################################################################
+
+PI_BLASTER_VERSION = 196e0cacab86b3eaa3f06fcb5ad5c772921c0825
+PI_BLASTER_SITE = $(call github,YesVideo,pi-blaster,$(PI_BLASTER_VERSION))
+PI_BLASTER_LICENSE = MIT
+
+define PI_BLASTER_RUN_AUTOGEN
+	cd $(@D) && PATH=$(BR_PATH) ./autogen.sh
+endef
+PI_BLASTER_PRE_CONFIGURE_HOOKS += PI_BLASTER_RUN_AUTOGEN
+
+define PI_BLASTER_INSTALL_TARGET_CMDS
+	$(INSTALL) -D -m 755 package/pi-blaster/S50pi-blaster \
+		$(TARGET_DIR)/etc/init.d/S50pi-blaster
+	$(INSTALL) -D -m 755 $(@D)/pi-blaster \
+		$(TARGET_DIR)/usr/sbin
+endef
+
+$(eval $(autotools-package))

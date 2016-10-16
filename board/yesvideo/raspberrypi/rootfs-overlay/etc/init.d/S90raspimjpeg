@@ -1,0 +1,55 @@
+#!/bin/sh
+#
+# Starts raspimjpeg
+#
+
+FIFO=/var/www/FIFO
+MJPEG=/dev/shm/mjpeg
+
+start() {
+    ps | grep -v grep | grep -v init.d | grep -q raspimjpeg && echo "raspimjpeg already running" && exit 1
+    _start
+}
+
+_start() {
+	echo "Starting raspimjpeg"
+    if [ ! -e $FIFO ] ; then
+	    mknod $FIFO p
+	    chmod 666 /var/www/FIFO
+    fi
+    if [ ! -e $MJPEG ] ; then
+        mkdir $MJPEG
+    fi
+	/usr/bin/raspimjpeg &
+}
+
+stop() {
+    _stop || (echo "raspimjpeg not running" && exit 1)
+}
+
+_stop() {
+	killall raspimjpeg >/dev/null 2>&1 && echo "Stopping raspimjpeg"
+}
+
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+  start)
+  	start
+	;;
+  stop)
+  	stop
+	;;
+  restart|reload)
+    _stop
+   	_start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?

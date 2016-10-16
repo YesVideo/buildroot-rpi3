@@ -11,12 +11,10 @@ disable_overscan=1
 # 256, 512 or 1024 MB total memory
 gpu_mem_256=100
 gpu_mem_512=100
-gpu_mem_1024=100
+gpu_mem_1024=512
 
 avoid_warnings=1
 enable_uart=1
 core_freq=250
 disable_splash=1
 #lcd_rotate=2
-
-

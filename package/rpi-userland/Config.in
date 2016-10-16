@@ -15,7 +15,7 @@ config BR2_PACKAGE_RPI_USERLAND
 	  Includes source for the ARM side code to interface to:
 	  EGL, mmal, GLESv2, vcos, openmaxil, vchiq_arm, bcm_host, WFC, OpenVG.
 
-	  https://github.com/raspberrypi/userland/
+	  https://github.com/YesVideo/rpi-userland/
 
 if BR2_PACKAGE_RPI_USERLAND
 

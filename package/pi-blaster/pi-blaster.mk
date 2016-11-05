@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-PI_BLASTER_VERSION = 196e0cacab86b3eaa3f06fcb5ad5c772921c0825
+PI_BLASTER_VERSION = 1520f826917de361231b1513ea22416649830867
 PI_BLASTER_SITE = $(call github,YesVideo,pi-blaster,$(PI_BLASTER_VERSION))
 PI_BLASTER_LICENSE = MIT
 

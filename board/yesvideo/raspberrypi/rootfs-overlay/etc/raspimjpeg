@@ -61,8 +61,8 @@ divider 1
 #
 # Video Options
 #
-video_width 1920
-video_height 1080
+video_width 1640
+video_height 1232
 video_fps 25
 video_bitrate 17000000
 video_buffer 0
@@ -75,7 +75,7 @@ MP4Box_fps 25
 #
 # Image Options
 #
-image_width 3240
+image_width 3280
 image_height 2464
 image_quality 100
 
